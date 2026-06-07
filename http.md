@@ -92,4 +92,30 @@ HERE:
 "john" is its values
 
 ## why is JSON important?
-when a browser, mobile app, or frontend talks to a backend server,they often exchange data as JSON
+when a browser, mobile app, or frontend talks to a backend server,they often exchange data as JSON.
+
+so JSON is simply the language used to exchange data.
+JSON is the language most API use to exchange data.
+
+## what is an API?
+
+APL stands for Application Programming Interface.
+
+in web development, an API is set of HTTP endpoints that allow applications to communicate.
+
+think of an API as a waiter in a restaurant:
+Customer
+   |
+   order
+    |
+    waiter(API)
+    |
+    v
+    Kitchen(server)
+the waitr takes your request to the kitchen and brings back the result.
+
+* think of an API as a doorway to a server.
+* the API receives requests and returns responses.
+* the API is acting as a middleman.
+*  API Endpoints: an endpoint is a URL that performs a task
+
