@@ -119,3 +119,8 @@ the waitr takes your request to the kitchen and brings back the result.
 * the API is acting as a middleman.
 *  API Endpoints: an endpoint is a URL that performs a task
 
+HTTP = the road that dat travels on (the communication rules)
+JSON = the packageing format of what inside the delivery(how data is structured)
+API = the post office that decides what can be sent and received
+
+"HTTP is how browsers and servers talk, and when APIs exchange data, they usually pack that data in JSON format."
