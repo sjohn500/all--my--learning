@@ -124,3 +124,48 @@ JSON = the packageing format of what inside the delivery(how data is structured)
 API = the post office that decides what can be sent and received
 
 "HTTP is how browsers and servers talk, and when APIs exchange data, they usually pack that data in JSON format."
+
+## what is javascript?
+before we start expalining what is javascript let break everything down 
+* 1. HTML = the structure of a webpage (the skeleton)
+* 2. CSS = the look of a webpage (the clothe)
+* 3. JavaScritpt = the behaviour of a webpage(the brain)
+
+javaScript is the programming language of the web. it runs inside your brower --- no installation needed. But it can  also run on a server (that's called Node.js, which we'll get to soon)
+
+```javascript
+let name = "Serah";
+let age  = 25;
+
+console.log("Hello, my name is " + name);
+console.log("I am " + age + " years old");
+```
+
+## what's happening here?
+
+* let  = create a box to store a value (called a variable)
+* name and age = the names of thise boxes
+* console.log() = print something out so you can see it
+
+
+### in my own word explaination
+* 1. 
+"When a user loads a page, the browser sends a GET request to the server using HTTP, and the server sends back a 200 OK with the page content."
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/users/1")   // 1. Go get this
+  .then(response => response.json())                     // 2. Then unpack the JSON
+  .then(data => console.log(data))                       // 3. Then show me the data
+```
+
+
+Reading it line by line like English:
+
+* Line 1 → "Go to this URL and make a GET request"
+* Line 2 → "When the response arrives, open it and read the JSON inside"
+* Line 3 → "When the JSON is ready, print it out"
+
+# what does response.json()do?
+
+
+
