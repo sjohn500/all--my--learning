@@ -1,8 +1,8 @@
-import { signOut } from 'firebase/auth';
-import { useContext } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { auth } from '../config/firebase';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '../config/firebase';
 
 const HomeScreen = ({ navigation }) => {
   const { user } = useContext(AuthContext);
@@ -38,6 +38,14 @@ const HomeScreen = ({ navigation }) => {
         </TouchableOpacity>
       )}
 
+      {/* NEW: ANNOUNCEMENTS BUTTON (Visible to everyone) */}
+      <TouchableOpacity 
+        style={styles.announceBtn} 
+        onPress={() => navigation.navigate('Announcements')}
+      >
+        <Text style={styles.announceBtnText}>📢 View Announcements</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
         <Text style={styles.logoutText}>Logout</Text>
       </TouchableOpacity>
@@ -54,6 +62,8 @@ const styles = StyleSheet.create({
   value: { fontSize: 20, fontWeight: 'bold', color: '#333' },
   adminBtn: { backgroundColor: '#333', padding: 15, borderRadius: 8, width: '100%', alignItems: 'center', marginTop: 20 },
   adminBtnText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
+  announceBtn: { backgroundColor: '#4A90E2', padding: 15, borderRadius: 8, width: '100%', alignItems: 'center', marginTop: 15 },
+  announceBtnText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
   logoutBtn: { marginTop: 20, backgroundColor: '#E24A4A', padding: 15, borderRadius: 8, width: '100%', alignItems: 'center' },
   logoutText: { color: '#fff', fontSize: 18, fontWeight: 'bold' }
 });
