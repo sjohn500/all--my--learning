@@ -4,10 +4,75 @@
         "title": "wifi",
         "user_description": "wifi is slow"
     },
-    
     {
         "id": 1793026086,
         "title": "wifi ",
         "user_description": "wifi is slow"
+    },
+    {
+        "id": 1793097052,
+        "title": "laptop",
+        "user_description": "laptop is not working well",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793097175,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793098005,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793098066,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis pending (Server busy)"
+    },
+    {
+        "id": 1793103683,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis pending (Server busy)"
+    },
+    {
+        "id": 1793105516,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793107374,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793107565,
+        "title": "wifi is slow",
+        "user_description": "wifi",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793108481,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793108746,
+        "title": "laptop",
+        "user_description": "my laptop connects to the campus Wi-Fi but websites do not load",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793109516,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
     }
 ]
