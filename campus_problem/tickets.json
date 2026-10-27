@@ -260,5 +260,59 @@
                 "Restart your laptop if the network interface is unresponsive."
             ]
         }
+    },
+    {
+        "id": 1793113430,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": "1793113962",
+        "title": "wifi",
+        "description": "wifi is not connecting",
+        "category": "Network & Connectivity",
+        "urgency": "High",
+        "steps": [
+            "Check whether other devices can access the internet.",
+            "Disconnect and reconnect to the Wi-Fi network.",
+            "Verify the network gateway and DNS configuration.",
+            "Restart the network connection."
+        ]
+    },
+    {
+        "id": "1793114095",
+        "title": "wifi",
+        "description": "wifi is slow",
+        "category": "Network & Connectivity",
+        "urgency": "High",
+        "steps": [
+            "Check whether other devices can access the internet.",
+            "Disconnect and reconnect to the Wi-Fi network.",
+            "Verify the network gateway and DNS configuration.",
+            "Restart the network connection."
+        ]
+    },
+    {
+        "id": "1793114307",
+        "title": "wifi",
+        "description": "wifi is slow",
+        "category": "Network & Connectivity",
+        "urgency": "High",
+        "steps": [
+            "Check whether other devices can access the internet.",
+            "Disconnect and reconnect to the Wi-Fi network.",
+            "Verify the network gateway and DNS configuration.",
+            "Restart the network connection."
+        ]
     }
 ]
