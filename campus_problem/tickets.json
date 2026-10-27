@@ -74,5 +74,191 @@
         "title": "wifi",
         "user_description": "wifi is slow",
         "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793109733,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": "AI analysis failed due to a system error."
+    },
+    {
+        "id": 1793110369,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Error",
+            "urgency": "Unknown",
+            "steps": [
+                "System error fallback"
+            ]
+        }
+    },
+    {
+        "id": 1793110568,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Error",
+            "urgency": "Unknown",
+            "steps": [
+                "System error fallback"
+            ]
+        }
+    },
+    {
+        "id": 1793110869,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Error",
+            "urgency": "Unknown",
+            "steps": [
+                "System error fallback"
+            ]
+        }
+    },
+    {
+        "id": 1793111275,
+        "title": "wifi is slow",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Error",
+            "urgency": "Unknown",
+            "steps": [
+                "System error fallback"
+            ]
+        }
+    },
+    {
+        "id": 1793111590,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Error",
+            "urgency": "Unknown",
+            "steps": [
+                "System error fallback"
+            ]
+        }
+    },
+    {
+        "id": 1793112065,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "1. Toggle your device's Wi-Fi adapter off and back on.",
+                "2. Forget the campus network and re-enter your credentials.",
+                "3. Verify if other devices can connect to the access point.",
+                "4. Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793112441,
+        "title": "laptop",
+        "user_description": "my latop is not conecting to the network",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793112620,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793112685,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793112744,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793112833,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793113021,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
+    },
+    {
+        "id": 1793113076,
+        "title": "wifi",
+        "user_description": "wifi is slow",
+        "ai_analysis": {
+            "category": "Network & Connectivity",
+            "urgency": "High",
+            "steps": [
+                "Toggle your device's Wi-Fi adapter off and back on.",
+                "Forget the campus network and re-enter your credentials.",
+                "Verify if other devices can connect to the access point.",
+                "Restart your laptop if the network interface is unresponsive."
+            ]
+        }
     }
 ]
