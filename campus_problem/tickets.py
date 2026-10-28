@@ -3,6 +3,17 @@ import json
 import random
 import requests
 
+# --- ANSI Color Codes ---
+RESET = "\033[0m"
+BOLD = "\033[1m"
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+BLUE = "\033[94m"
+MAGENTA = "\033[95m"
+CYAN = "\033[96m"
+GRAY = "\033[90m"
+
 TICKET_FILE = "tickets.json"
 
 def load_tickets():
@@ -106,53 +117,53 @@ def analyze_with_openrouter(description):
 
 def analyze_ticket(description, choice):
     if choice == '1':
-        print("\n[AI] Using Gemini...")
+        print(f"\n{MAGENTA}[AI] Using Gemini...{RESET}")
         try:
             return analyze_with_gemini(description)
         except Exception as e:
-            print(f"[Error] Gemini failed: {e}. Falling back to Heuristic Engine.")
+            print(f"{RED}[Error] Gemini failed: {e}. Falling back to Heuristic Engine.{RESET}")
             return heuristic_analysis(description)
             
     elif choice == '2':
-        print("\n[AI] Using OpenRouter...")
+        print(f"\n{MAGENTA}[AI] Using OpenRouter...{RESET}")
         try:
             return analyze_with_openrouter(description)
         except Exception as e:
-            print(f"[Error] OpenRouter failed: {e}. Falling back to Heuristic Engine.")
+            print(f"{RED}[Error] OpenRouter failed: {e}. Falling back to Heuristic Engine.{RESET}")
             return heuristic_analysis(description)
             
     else:  # Auto-Cascade
-        print("\n[AI] Using Auto-Cascade...")
+        print(f"\n{MAGENTA}[AI] Using Auto-Cascade...{RESET}")
         try:
-            print("[Cascade] Attempting Gemini...")
+            print(f"{GRAY}[Cascade] Attempting Gemini...{RESET}")
             return analyze_with_gemini(description)
         except Exception as e1:
-            print(f"[Cascade] Gemini skipped/failed: {e1}")
+            print(f"{YELLOW}[Cascade] Gemini skipped/failed: {e1}{RESET}")
             try:
-                print("[Cascade] Attempting OpenRouter...")
+                print(f"{GRAY}[Cascade] Attempting OpenRouter...{RESET}")
                 return analyze_with_openrouter(description)
             except Exception as e2:
-                print(f"[Cascade] OpenRouter skipped/failed: {e2}. Falling back to Heuristic Engine.")
+                print(f"{RED}[Cascade] OpenRouter skipped/failed: {e2}. Falling back to Heuristic Engine.{RESET}")
                 return heuristic_analysis(description)
 
 def create_ticket():
-    title = input("Enter title: ")
-    description = input("Enter description: ")
+    title = input(f"{CYAN}Enter title: {RESET}")
+    description = input(f"{CYAN}Enter description: {RESET}")
     
-    print("\nSelect AI Engine:")
+    print(f"\n{BOLD}Select AI Engine:{RESET}")
     print("1. Gemini")
     print("2. OpenRouter")
     print("3. Auto-Cascade (Default)")
-    choice = input("Choose AI provider (1-3): ").strip()
+    choice = input(f"{CYAN}Choose AI provider (1-3): {RESET}").strip()
     if choice not in ['1', '2', '3']:
         choice = '3'
         
     ticket_id = random.randint(1000000000, 9999999999)
-    print(f"\nTicket created successfully.")
-    print(f"ID: {ticket_id}")
-    print(f"Description: {description}")
+    print(f"\n{GREEN}✔ Ticket created successfully.{RESET}")
+    print(f"{BOLD}ID:{RESET} {ticket_id}")
+    print(f"{BOLD}Description:{RESET} {description}")
     
-    print("\nGetting AI suggestions...")
+    print(f"\n{BLUE}Getting AI suggestions...{RESET}")
     analysis = analyze_ticket(description, choice)
     
     ticket_data = {
@@ -168,41 +179,49 @@ def create_ticket():
     tickets.append(ticket_data)
     save_tickets(tickets)
     
-    print(f"\nSuggestions:")
+    print(f"\n{CYAN}{BOLD}Suggestions:{RESET}")
     for i, step in enumerate(analysis.get("steps", []), 1):
-        print(f"{i}. {step}")
+        print(f"{GREEN}{i}.{RESET} {step}")
 
 def view_tickets():
     tickets = load_tickets()
     if not tickets:
-        print("\nNo saved tickets found.")
+        print(f"\n{YELLOW}No saved tickets found.{RESET}")
         return
-    print("\n--- Saved Tickets ---")
+    print(f"\n{CYAN}{BOLD}--- Saved Tickets ---{RESET}")
     for t in tickets:
-        print(f"ID: {t['id']} | Title: {t['title']} | Category: {t['category']} | Urgency: {t['urgency']}")
-        print(f"Description: {t['description']}")
-        print("Steps:")
+        urgency = t['urgency']
+        if urgency == "High":
+            urgency_str = f"{RED}{urgency}{RESET}"
+        elif urgency == "Medium":
+            urgency_str = f"{YELLOW}{urgency}{RESET}"
+        else:
+            urgency_str = f"{GREEN}{urgency}{RESET}"
+            
+        print(f"{BOLD}ID:{RESET} {t['id']} | {BOLD}Title:{RESET} {t['title']} | {BOLD}Category:{RESET} {t['category']} | {BOLD}Urgency:{RESET} {urgency_str}")
+        print(f"{GRAY}Description: {t['description']}{RESET}")
+        print(f"{BOLD}Steps:{RESET}")
         for i, s in enumerate(t['steps'], 1):
             print(f"  {i}. {s}")
-        print("-" * 25)
+        print(f"{CYN_LINE if 'CYN_LINE' in globals() else GRAY}{'-' * 30}{RESET}")
 
 def main():
     while True:
-        print("\n--- CampusFlow IT Support ---")
+        print(f"\n{CYAN}{BOLD}=== CampusFlow IT Support ==={RESET}")
         print("1. Create a new ticket")
         print("2. View saved tickets")
         print("3. Exit")
-        choice = input("Choose an option (1-3): ").strip()
+        choice = input(f"{CYAN}Choose an option (1-3): {RESET}").strip()
         
         if choice == '1':
             create_ticket()
         elif choice == '2':
             view_tickets()
         elif choice == '3':
-            print("\nGoodbye!")
+            print(f"\n{GREEN}Goodbye!{RESET}\n")
             break
         else:
-            print("Invalid option. Please choose 1, 2, or 3.")
+            print(f"{RED}Invalid option. Please choose 1, 2, or 3.{RESET}")
 
 if __name__ == "__main__":
     main()
