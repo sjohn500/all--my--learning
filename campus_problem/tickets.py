@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import random
 import requests
 
@@ -77,15 +78,31 @@ def analyze_with_gemini(description):
             }]
         }]
     }
-    response = requests.post(url, headers=headers, json=payload, timeout=20.0)
-    if response.status_code == 200:
-        content = response.json()["candidates"][0]["content"]["parts"][0]["text"]
-        if "```json" in content:
-            content = content.split("```json")[1].split("```")[0].strip()
-        elif "```" in content:
-            content = content.split("```")[1].split("```")[0].strip()
-        return json.loads(content)
-    raise Exception(f"Gemini returned status code {response.status_code}: {response.text}")
+    
+    # Retry loop to handle brief network latency or 503 high demand spikes
+    max_retries = 2
+    for attempt in range(max_retries):
+        try:
+            response = requests.post(url, headers=headers, json=payload, timeout=20.0)
+            if response.status_code == 200:
+                content = response.json()["candidates"][0]["content"]["parts"][0]["text"]
+                if "```json" in content:
+                    content = content.split("```json")[1].split("```")[0].strip()
+                elif "```" in content:
+                    content = content.split("```")[1].split("```")[0].strip()
+                return json.loads(content)
+            elif response.status_code == 503 and attempt < max_retries - 1:
+                time.sleep(1.5)
+                continue
+            else:
+                raise Exception(f"Gemini returned status code {response.status_code}: {response.text}")
+        except requests.exceptions.Timeout:
+            if attempt < max_retries - 1:
+                time.sleep(1.0)
+                continue
+            raise Exception("Gemini request timed out after retries.")
+            
+    raise Exception("Gemini failed after maximum retry attempts.")
 
 def analyze_with_openrouter(description):
     openrouter_key = os.getenv("OPENROUTER_API_KEY")
@@ -203,7 +220,7 @@ def view_tickets():
         print(f"{BOLD}Steps:{RESET}")
         for i, s in enumerate(t['steps'], 1):
             print(f"  {i}. {s}")
-        print(f"{CYN_LINE if 'CYN_LINE' in globals() else GRAY}{'-' * 30}{RESET}")
+        print(f"{GRAY}{'-' * 30}{RESET}")
 
 def main():
     while True:
