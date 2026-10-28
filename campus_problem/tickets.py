@@ -79,7 +79,6 @@ def analyze_with_gemini(description):
         }]
     }
     
-    # Retry loop to handle brief network latency or 503 high demand spikes
     max_retries = 2
     for attempt in range(max_retries):
         try:
@@ -222,23 +221,47 @@ def view_tickets():
             print(f"  {i}. {s}")
         print(f"{GRAY}{'-' * 30}{RESET}")
 
+def show_help():
+    print(f"\n{CYAN}{BOLD}=== CampusFlow System & Help Guide ==={RESET}")
+    print(f"{BOLD}Description:{RESET} CampusFlow is a high-resilience IT support CLI tool designed")
+    print("to categorize issues, assess urgency, and generate troubleshooting steps.")
+    
+    print(f"\n{BOLD}1. Architecture & Auto-Cascade:{RESET}")
+    print(f"   • {GREEN}Tier 1 (Gemini):{RESET} Primary intelligence engine with 20s timeout & auto-retry.")
+    print(f"   • {YELLOW}Tier 2 (OpenRouter):{RESET} Secondary fallback cloud model.")
+    print(f"   • {RED}Tier 3 (Heuristic Local Engine):{RESET} Offline fallback ruleset ensuring zero downtime.")
+    
+    print(f"\n{BOLD}2. Environment Variables Required:{RESET}")
+    print(f"   • {CYAN}GEMINI_API_KEY{RESET} (or GOOGLE_API_KEY)")
+    print(f"   • {CYAN}OPENROUTER_API_KEY{RESET}")
+    
+    print(f"\n{BOLD}3. Terminal Color Guide:{RESET} ")
+    print(f"   • {GREEN}Green:{RESET} Success states & low urgency / step indices")
+    print(f"   • {YELLOW}Yellow:{RESET} Medium urgency & fallback warnings")
+    print(f"   • {RED}Red:{RESET} High urgency & connection error alerts")
+    print(f"   • {CYAN}Cyan:{RESET} Headers, titles, and user prompt inputs")
+    print(f"{CYAN}{'-' * 45}{RESET}")
+
 def main():
     while True:
         print(f"\n{CYAN}{BOLD}=== CampusFlow IT Support ==={RESET}")
         print("1. Create a new ticket")
         print("2. View saved tickets")
-        print("3. Exit")
-        choice = input(f"{CYAN}Choose an option (1-3): {RESET}").strip()
+        print("3. System & Help Guide")
+        print("4. Exit")
+        choice = input(f"{CYAN}Choose an option (1-4): {RESET}").strip()
         
         if choice == '1':
             create_ticket()
         elif choice == '2':
             view_tickets()
         elif choice == '3':
+            show_help()
+        elif choice == '4':
             print(f"\n{GREEN}Goodbye!{RESET}\n")
             break
         else:
-            print(f"{RED}Invalid option. Please choose 1, 2, or 3.{RESET}")
+            print(f"{RED}Invalid option. Please choose between 1 and 4.{RESET}")
 
 if __name__ == "__main__":
     main()
